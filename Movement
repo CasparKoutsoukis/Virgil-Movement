@@ -3,23 +3,34 @@ import time
 
 def init():
   gpio.setmode(gpio.BOARD)
-  gpio.setup(5, gpio.OUT)
-  gpio.setup(6, gpio.OUT)
-  gpio.setup(12, gpio.OUT)
-  gpio.setup(13, gpio.OUT)
+  gpio.setup(29, gpio.OUT)
+  gpio.setup(31, gpio.OUT)
+  gpio.setup(32, gpio.OUT)
+  gpio.setup(33, gpio.OUT)
   
 def forward():
   init()
-  gpio.output (5, False)
-  gpio.output (6, True)
-  gpio.output (12, False)
-  gpio.output (13, True)
+  gpio.output (29, False)
+  gpio.output (31, True)
+  gpio.output (32, False)
+  gpio.output (33, True)
+  time.sleep(3)
   gpio.cleanup()
   
 def backwards():
   init()
-  gpio.output (5, True)
-  gpio.output (6, False)
-  gpio.output (12, True)
-  gpio.output (13, False) 
+  gpio.output (29, True)
+  gpio.output (21, False)
+  gpio.output (32, True)
+  gpio.output (33, False) 
   gpio.cleanup()
+  
+var = ""
+var = input('Type direction')
+
+while input != "":
+  var = input('Type direction')
+  if var == "forward":
+  
+    forward()
+    break
