@@ -20,9 +20,28 @@ def forward():
 def backwards():
   init()
   gpio.output (29, True)
-  gpio.output (21, False)
+  gpio.output (31, False)
   gpio.output (32, True)
-  gpio.output (33, False) 
+  gpio.output (33, False)
+  time.sleep(3)
+  gpio.cleanup()
+  
+def right():
+  init()
+  gpio.output (29, False)
+  gpio.output (31, True)
+  gpio.output (32, False)
+  gpio.output (33, False)
+  time.sleep(3)
+  gpio.cleanup()
+  
+def left():
+  init()
+  gpio.output (29, False)
+  gpio.output (31, False)
+  gpio.output (32, False)
+  gpio.output (33, True)
+  time.sleep(3)
   gpio.cleanup()
   
 var = ""
@@ -33,4 +52,16 @@ while input != "":
   if var == "forward":
   
     forward()
-    break
+    
+  elif var == "backward":
+      
+    backwards()
+    
+  elif var == "right":
+      
+    right()
+
+  elif var == "left":
+      
+    left()
+   
